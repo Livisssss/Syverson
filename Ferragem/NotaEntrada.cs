@@ -133,7 +133,7 @@ namespace Ferragem
                     return;
                 }
 
-                using (SqlCommand comm = new SqlCommand("IncluirNotaEntrada", conn))
+                using (SqlCommand command = new SqlCommand("IncluirNotaEntrada", conn))
                 {
                     comm.CommandType = CommandType.StoredProcedure;
 

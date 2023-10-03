@@ -63,14 +63,14 @@
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvNotaE = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vWDGVNOTAENTRADABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fornecedoresTableAdapter2 = new Ferragem.FERRAGEMdbTableAdapters.FornecedoresTableAdapter();
             this.produtosTableAdapter2 = new Ferragem.FERRAGEMdbTableAdapters.ProdutosTableAdapter();
             this.vW_DGV_PROD_ENTRADATableAdapter = new Ferragem.FERRAGEMdbTableAdapters.VW_DGV_PROD_ENTRADATableAdapter();
+            this.vWDGVNOTAENTRADABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vW_DGV_NOTA_ENTRADATableAdapter = new Ferragem.FERRAGEMdbTableAdapters.VW_DGV_NOTA_ENTRADATableAdapter();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fERRAGEMdb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
@@ -381,9 +381,9 @@
             this.dgvNotaE.AutoGenerateColumns = false;
             this.dgvNotaE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotaE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn24});
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
             this.dgvNotaE.DataSource = this.vWDGVNOTAENTRADABindingSource;
             this.dgvNotaE.Location = new System.Drawing.Point(23, 206);
             this.dgvNotaE.MultiSelect = false;
@@ -393,36 +393,6 @@
             this.dgvNotaE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvNotaE.Size = new System.Drawing.Size(485, 300);
             this.dgvNotaE.TabIndex = 171;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "n_nota";
-            this.dataGridViewTextBoxColumn18.HeaderText = "N° Nota";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "fornecedor_nome";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Fornecedor";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "valor_total_nota";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Valor Total";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // vWDGVNOTAENTRADABindingSource
-            // 
-            this.vWDGVNOTAENTRADABindingSource.DataMember = "VW_DGV_NOTA_ENTRADA";
-            this.vWDGVNOTAENTRADABindingSource.DataSource = this.fERRAGEMdb1;
             // 
             // fornecedoresTableAdapter2
             // 
@@ -436,9 +406,40 @@
             // 
             this.vW_DGV_PROD_ENTRADATableAdapter.ClearBeforeFill = true;
             // 
+            // vWDGVNOTAENTRADABindingSource
+            // 
+            this.vWDGVNOTAENTRADABindingSource.DataMember = "VW_DGV_NOTA_ENTRADA";
+            this.vWDGVNOTAENTRADABindingSource.DataSource = this.fERRAGEMdb1;
+            // 
             // vW_DGV_NOTA_ENTRADATableAdapter
             // 
             this.vW_DGV_NOTA_ENTRADATableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "n_nota";
+            this.dataGridViewTextBoxColumn16.HeaderText = "N° Nota";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "fornecedor_nome";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Fornecedor";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "valor_total_nota";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Valor Total";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 83;
             // 
             // NotaEntrada
             // 
@@ -551,13 +552,13 @@
         private FERRAGEMdbTableAdapters.ProdutosTableAdapter produtosTableAdapter2;
         private System.Windows.Forms.BindingSource vWDGVPRODENTRADABindingSource;
         private FERRAGEMdbTableAdapters.VW_DGV_PROD_ENTRADATableAdapter vW_DGV_PROD_ENTRADATableAdapter;
-        private System.Windows.Forms.BindingSource vWDGVNOTAENTRADABindingSource;
-        private FERRAGEMdbTableAdapters.VW_DGV_NOTA_ENTRADATableAdapter vW_DGV_NOTA_ENTRADATableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.BindingSource vWDGVNOTAENTRADABindingSource;
+        private FERRAGEMdbTableAdapters.VW_DGV_NOTA_ENTRADATableAdapter vW_DGV_NOTA_ENTRADATableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
     }
 }
