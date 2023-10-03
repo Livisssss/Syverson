@@ -3967,21 +3967,9 @@ namespace Ferragem {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class VW_DGV_NOTA_ENTRADADataTable : global::System.Data.TypedTableBase<VW_DGV_NOTA_ENTRADARow> {
             
-            private global::System.Data.DataColumn columnid_nota_e;
-            
-            private global::System.Data.DataColumn columnid_fornecedor;
-            
             private global::System.Data.DataColumn columnn_nota;
             
-            private global::System.Data.DataColumn columnid_produto;
-            
-            private global::System.Data.DataColumn columnqtde;
-            
-            private global::System.Data.DataColumn columnvalor_un_compra;
-            
             private global::System.Data.DataColumn columnfornecedor_nome;
-            
-            private global::System.Data.DataColumn columnproduto_nome;
             
             private global::System.Data.DataColumn columnvalor_total_nota;
             
@@ -4020,22 +4008,6 @@ namespace Ferragem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_nota_eColumn {
-                get {
-                    return this.columnid_nota_e;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_fornecedorColumn {
-                get {
-                    return this.columnid_fornecedor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn n_notaColumn {
                 get {
                     return this.columnn_nota;
@@ -4044,41 +4016,9 @@ namespace Ferragem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_produtoColumn {
-                get {
-                    return this.columnid_produto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn qtdeColumn {
-                get {
-                    return this.columnqtde;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn valor_un_compraColumn {
-                get {
-                    return this.columnvalor_un_compra;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn fornecedor_nomeColumn {
                 get {
                     return this.columnfornecedor_nome;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn produto_nomeColumn {
-                get {
-                    return this.columnproduto_nome;
                 }
             }
             
@@ -4127,28 +4067,15 @@ namespace Ferragem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VW_DGV_NOTA_ENTRADARow AddVW_DGV_NOTA_ENTRADARow(int id_nota_e, int id_fornecedor, int n_nota, int id_produto, int qtde, decimal valor_un_compra, string fornecedor_nome, string produto_nome, decimal valor_total_nota) {
+            public VW_DGV_NOTA_ENTRADARow AddVW_DGV_NOTA_ENTRADARow(int n_nota, string fornecedor_nome, decimal valor_total_nota) {
                 VW_DGV_NOTA_ENTRADARow rowVW_DGV_NOTA_ENTRADARow = ((VW_DGV_NOTA_ENTRADARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_nota_e,
-                        id_fornecedor,
                         n_nota,
-                        id_produto,
-                        qtde,
-                        valor_un_compra,
                         fornecedor_nome,
-                        produto_nome,
                         valor_total_nota};
                 rowVW_DGV_NOTA_ENTRADARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_DGV_NOTA_ENTRADARow);
                 return rowVW_DGV_NOTA_ENTRADARow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VW_DGV_NOTA_ENTRADARow FindByid_nota_e(int id_nota_e) {
-                return ((VW_DGV_NOTA_ENTRADARow)(this.Rows.Find(new object[] {
-                            id_nota_e})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4168,51 +4095,23 @@ namespace Ferragem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid_nota_e = base.Columns["id_nota_e"];
-                this.columnid_fornecedor = base.Columns["id_fornecedor"];
                 this.columnn_nota = base.Columns["n_nota"];
-                this.columnid_produto = base.Columns["id_produto"];
-                this.columnqtde = base.Columns["qtde"];
-                this.columnvalor_un_compra = base.Columns["valor_un_compra"];
                 this.columnfornecedor_nome = base.Columns["fornecedor_nome"];
-                this.columnproduto_nome = base.Columns["produto_nome"];
                 this.columnvalor_total_nota = base.Columns["valor_total_nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid_nota_e = new global::System.Data.DataColumn("id_nota_e", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_nota_e);
-                this.columnid_fornecedor = new global::System.Data.DataColumn("id_fornecedor", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_fornecedor);
                 this.columnn_nota = new global::System.Data.DataColumn("n_nota", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnn_nota);
-                this.columnid_produto = new global::System.Data.DataColumn("id_produto", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_produto);
-                this.columnqtde = new global::System.Data.DataColumn("qtde", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnqtde);
-                this.columnvalor_un_compra = new global::System.Data.DataColumn("valor_un_compra", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalor_un_compra);
                 this.columnfornecedor_nome = new global::System.Data.DataColumn("fornecedor_nome", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfornecedor_nome);
-                this.columnproduto_nome = new global::System.Data.DataColumn("produto_nome", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnproduto_nome);
                 this.columnvalor_total_nota = new global::System.Data.DataColumn("valor_total_nota", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalor_total_nota);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_nota_e}, true));
-                this.columnid_nota_e.AllowDBNull = false;
-                this.columnid_nota_e.Unique = true;
-                this.columnid_fornecedor.AllowDBNull = false;
                 this.columnn_nota.AllowDBNull = false;
-                this.columnid_produto.AllowDBNull = false;
-                this.columnqtde.AllowDBNull = false;
-                this.columnvalor_un_compra.AllowDBNull = false;
                 this.columnfornecedor_nome.AllowDBNull = false;
                 this.columnfornecedor_nome.MaxLength = 100;
-                this.columnproduto_nome.AllowDBNull = false;
-                this.columnproduto_nome.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7771,28 +7670,6 @@ namespace Ferragem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_nota_e {
-                get {
-                    return ((int)(this[this.tableVW_DGV_NOTA_ENTRADA.id_nota_eColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.id_nota_eColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_fornecedor {
-                get {
-                    return ((int)(this[this.tableVW_DGV_NOTA_ENTRADA.id_fornecedorColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.id_fornecedorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int n_nota {
                 get {
                     return ((int)(this[this.tableVW_DGV_NOTA_ENTRADA.n_notaColumn]));
@@ -7804,56 +7681,12 @@ namespace Ferragem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_produto {
-                get {
-                    return ((int)(this[this.tableVW_DGV_NOTA_ENTRADA.id_produtoColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.id_produtoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int qtde {
-                get {
-                    return ((int)(this[this.tableVW_DGV_NOTA_ENTRADA.qtdeColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.qtdeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal valor_un_compra {
-                get {
-                    return ((decimal)(this[this.tableVW_DGV_NOTA_ENTRADA.valor_un_compraColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.valor_un_compraColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string fornecedor_nome {
                 get {
                     return ((string)(this[this.tableVW_DGV_NOTA_ENTRADA.fornecedor_nomeColumn]));
                 }
                 set {
                     this[this.tableVW_DGV_NOTA_ENTRADA.fornecedor_nomeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string produto_nome {
-                get {
-                    return ((string)(this[this.tableVW_DGV_NOTA_ENTRADA.produto_nomeColumn]));
-                }
-                set {
-                    this[this.tableVW_DGV_NOTA_ENTRADA.produto_nomeColumn] = value;
                 }
             }
             
@@ -12511,14 +12344,8 @@ SELECT nome_user, senha_user, data_modificacao, data_criacao FROM Usuarios WHERE
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "VW_DGV_NOTA_ENTRADA";
-            tableMapping.ColumnMappings.Add("id_nota_e", "id_nota_e");
-            tableMapping.ColumnMappings.Add("id_fornecedor", "id_fornecedor");
             tableMapping.ColumnMappings.Add("n_nota", "n_nota");
-            tableMapping.ColumnMappings.Add("id_produto", "id_produto");
-            tableMapping.ColumnMappings.Add("qtde", "qtde");
-            tableMapping.ColumnMappings.Add("valor_un_compra", "valor_un_compra");
             tableMapping.ColumnMappings.Add("fornecedor_nome", "fornecedor_nome");
-            tableMapping.ColumnMappings.Add("produto_nome", "produto_nome");
             tableMapping.ColumnMappings.Add("valor_total_nota", "valor_total_nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -12536,8 +12363,7 @@ SELECT nome_user, senha_user, data_modificacao, data_criacao FROM Usuarios WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_nota_e, id_fornecedor, n_nota, id_produto, qtde, valor_un_compra, forne" +
-                "cedor_nome, produto_nome, valor_total_nota FROM dbo.VW_DGV_NOTA_ENTRADA";
+            this._commandCollection[0].CommandText = "SELECT n_nota, fornecedor_nome, valor_total_nota FROM VW_DGV_NOTA_ENTRADA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
