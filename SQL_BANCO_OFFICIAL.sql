@@ -575,11 +575,10 @@ GO
 
 CREATE VIEW VW_DGV_NOTA_ENTRADA
 AS
-    SELECT E.*, F.nome AS fornecedor_nome, P.nome AS produto_nome,
+    SELECT DISTINCT E.n_nota, F.nome AS fornecedor_nome,
            SUM(qtde * valor_un_compra) OVER (PARTITION BY E.n_nota) AS valor_total_nota
     FROM Nota_Entrada E
-    INNER JOIN Fornecedores F ON E.id_fornecedor = F.id_fornecedor
-    INNER JOIN Produtos P ON E.id_produto = P.id_produto;
+    INNER JOIN Fornecedores F ON E.id_fornecedor = F.id_fornecedor;
 GO
 
 
