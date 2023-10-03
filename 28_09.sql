@@ -1,7 +1,7 @@
-CREATE DATABASE FERRAGEM2
+CREATE DATABASE FERRAGEM
 GO
 
-USE FERRAGEM2
+USE FERRAGEM
 GO
 
 CREATE TABLE Cidades (
@@ -42,8 +42,6 @@ VALUES ('Erechim', 'RS'),
 		('Guarapuava', 'PR'),
 		('Londrina', 'PR');
 GO
---INSERT INTO Cidades (nome, uf)
---VALUES ('Campinas', 'SP');
 
 CREATE TABLE Usuarios (
 	nome_user NVARCHAR(50) UNIQUE NOT NULL,
@@ -56,7 +54,7 @@ GO
 
 INSERT INTO Usuarios (nome_user, senha_user)
 VALUES  ('syverson', 'sy'),
-		('1', '1');
+	('1', '1');
 GO
 
 
@@ -71,9 +69,9 @@ CREATE TABLE Produtos (
 GO
 
 INSERT INTO Produtos (nome, descricao)
-VALUES  ('Jogo de chaves',	'Possui 12 unidades'),
-		('Furadeira', 'Acompanha 3 brocas de tamanhos diferentes'),
-	    ('Cerrote', 'Tipo 2');
+VALUES  ('Jogo de chaves','Possui 12 unidades'),
+	('Furadeira', 'Acompanha 3 brocas de tamanhos diferentes'),
+	('Cerrote', 'Tipo 2');
 GO
 
 CREATE TABLE Clientes (
@@ -93,11 +91,11 @@ CREATE TABLE Clientes (
 GO
 
 INSERT INTO Clientes (nome, data_nascimento, idade, cpf, email, telefone, ID_Cidade)
-VALUES  ('Joao Victor',	'1979/12/08',	39, '251.365.456-85', 'jv@gmail.com', '(49) 98634-9034', 9),
-		('Samuel',		'1998/03/11',	30, '112.233.432-11', 'samuca@gmail.com', '(49) 98448-5613', 5),
-		('Manuel',	'2000/6/12',	19, '368.111.325-55', 'manikas@gmail.com', '(54) 99191-5283', 1),
-		('Jair',	'2011/02/08',	 8, '112.123.444-12', 'comanjairb@gmail.com', '(49) 92468-3700', 8),
-		('Marcelo',	'2002/03/04',	17, '124.663.876-85', 'marcelao@gmail.com', '(49) 95481-1898', 7);
+VALUES  ('Joao Victor',	'1979/12/08',39, '251.365.456-85', 'jv@gmail.com', '(49) 98634-9034', 9),
+	('Samuel','1998/03/11',30, '112.233.432-11', 'samuca@gmail.com', '(49) 98448-5613', 5),
+	('Manuel','2000/6/12',19, '368.111.325-55', 'manikas@gmail.com', '(54) 99191-5283', 1),
+	('Jair','2011/02/08',8, '112.123.444-12', 'comanjairb@gmail.com', '(49) 92468-3700', 8),
+	('Marcelo','2002/03/04',17, '124.663.876-85', 'marcelao@gmail.com', '(49) 95481-1898', 7);
 GO
 
 
@@ -118,8 +116,8 @@ GO
 
 INSERT INTO Fornecedores (nome, ie, cnpj, email, telefone, ID_Cidade)
 VALUES  ('DeWalt', '254611630',	'09.380.849/0001-02', 'alessandro@tecniconsc.com.br', '(49) 98634-9034', 11),
-		('Bosch', '244007410115', '45.990.181/0001-89', 'centro.memoria@institutorobertbosch.org.br', '(19) 2103-1294', 12),
-	    ('Belzer', '2389904637', '44.256.691/0001-64', 'belzerferragens@gmail.com.br', '(19) 3116-4040', 12);
+	('Bosch', '244007410115', '45.990.181/0001-89', 'centro.memoria@institutorobertbosch.org.br', '(19) 2103-1294', 12),
+	('Belzer', '2389904637', '44.256.691/0001-64', 'belzerferragens@gmail.com.br', '(19) 3116-4040', 12);
 GO
 
 
@@ -140,8 +138,8 @@ GO
 
 INSERT INTO Nota_Entrada (id_fornecedor, n_nota, id_produto, qtde, valor_un_compra)
 VALUES  (1, 2345, 1, 4, 120.55),
-		(2, 1056, 2, 3, 566.70),
-	    (3, 7389, 3, 5, 55.60);
+	(2, 1056, 2, 3, 566.70),
+	(3, 7389, 3, 5, 55.60);
 GO
 
 
@@ -161,12 +159,16 @@ CREATE TABLE Nota_Saida (
 GO
 
 
+	
+
 INSERT INTO Nota_Saida (id_cliente, n_nota, id_produto, qtde, valor_un_venda)
 VALUES  (1, 2322, 1, 1, 149.90),
-		(2, 5677, 2, 1, 599.90),
-	    (3, 7904, 3, 1, 99.90);
+	(2, 5677, 2, 1, 599.90),
+	(3, 7904, 3, 1, 99.90);
 GO
 
+
+	
 
 --USUARIOS--
 CREATE OR ALTER TRIGGER tbiu_atualiza_data_modificacao_usuarios
@@ -174,13 +176,15 @@ ON Usuarios
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Usuarios
-    SET Usuarios.data_modificacao = GETDATE()
-    FROM Usuarios
-    INNER JOIN inserted i ON Usuarios.nome_user = i.nome_user;
+	UPDATE Usuarios
+	SET Usuarios.data_modificacao = GETDATE()
+	FROM Usuarios
+	INNER JOIN inserted i ON Usuarios.nome_user = i.nome_user;
 END;
 GO
 
+
+	
 
 
 CREATE OR ALTER TRIGGER tbi_gera_data_criacao_usuario
@@ -188,29 +192,32 @@ ON Usuarios
 AFTER INSERT
 AS
 BEGIN
-    UPDATE Usuarios
-    SET Usuarios.data_criacao = GETDATE()
-    FROM Usuarios
-    INNER JOIN inserted i ON Usuarios.nome_user = i.nome_user;
+	UPDATE Usuarios
+	SET Usuarios.data_criacao = GETDATE()
+	FROM Usuarios
+	INNER JOIN inserted i ON Usuarios.nome_user = i.nome_user;
 END;
 GO
 
 
+
+	
 --CLIENTES--
-
-
 CREATE OR ALTER TRIGGER tbiu_atualiza_data_modificacacao_clientes
 ON Clientes
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Clientes
-    SET Clientes.data_modificacao = GETDATE()
-    FROM Clientes
-    INNER JOIN inserted i ON Clientes.id_cliente = i.id_cliente;
+	UPDATE Clientes
+	SET Clientes.data_modificacao = GETDATE()
+	FROM Clientes
+	INNER JOIN inserted i ON Clientes.id_cliente = i.id_cliente;
 END;
 GO
 
+
+
+	
 CREATE PROCEDURE IncluirCliente
 	@nome NVARCHAR(100),
 	@data_nasc DATE,
@@ -224,7 +231,7 @@ BEGIN
 	DECLARE @cidade_id INT;
 	SELECT @cidade_id = id_cidade FROM Cidades WHERE nome = @cidade_nome;
 	INSERT INTO Clientes (nome, data_nascimento, idade, cpf, email, telefone, ID_Cidade)
-    VALUES (@nome, @data_nasc, @idade, @cpf, @email, @telefone, @cidade_id);
+        VALUES (@nome, @data_nasc, @idade, @cpf, @email, @telefone, @cidade_id);
 END;
 GO
 
@@ -233,15 +240,15 @@ GO
 
 
 CREATE PROCEDURE ConsultarCliente
-    @nome NVARCHAR(100),
-    @cpf NVARCHAR(14)
+        @nome NVARCHAR(100),
+        @cpf NVARCHAR(14)
 AS
 BEGIN
-    SELECT CL.*, CI.nome AS cidade_nome
-    FROM Clientes CL
-    INNER JOIN Cidades CI ON CL.id_cidade = CI.id_cidade
-    WHERE (@nome IS NOT NULL AND CL.nome = @nome)
-       OR (@cpf IS NOT NULL AND CL.cpf = @cpf);
+	SELECT CL.*, CI.nome AS cidade_nome
+	FROM Clientes CL
+	INNER JOIN Cidades CI ON CL.id_cidade = CI.id_cidade
+	WHERE (@nome IS NOT NULL AND CL.nome = @nome)
+	     OR (@cpf IS NOT NULL AND CL.cpf = @cpf);
 END;
 GO
 
@@ -251,7 +258,7 @@ GO
 
 CREATE PROCEDURE AtualizarCliente
 	@id_cliente INT,
-    @nome NVARCHAR(100),
+        @nome NVARCHAR(100),
 	@data_nasc DATE,
 	@idade INT,
 	@cpf NVARCHAR(14),
@@ -280,14 +287,12 @@ GO
 
 
 CREATE PROCEDURE ExcluirCliente
-    @id_cliente INT
+        @id_cliente INT
 AS
 BEGIN
     DELETE FROM Clientes WHERE id_cliente = @id_cliente;
 END;
 GO
-
-
 
 
 
@@ -320,16 +325,15 @@ GO
 
 
 --FORNECEDORES--
-
 CREATE OR ALTER TRIGGER tbiu_atualiza_data_modificacacao_fornecedores
 ON Fornecedores
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Fornecedores
-    SET Fornecedores.data_modificacao = GETDATE()
-    FROM Fornecedores
-    INNER JOIN inserted i ON Fornecedores.id_fornecedor = i.id_fornecedor;
+	UPDATE Fornecedores
+	SET Fornecedores.data_modificacao = GETDATE()
+	FROM Fornecedores
+	INNER JOIN inserted i ON Fornecedores.id_fornecedor = i.id_fornecedor;
 END;
 GO
 
@@ -345,7 +349,7 @@ BEGIN
 	DECLARE @cidade_id INT;
 	SELECT @cidade_id = id_cidade FROM Cidades WHERE nome = @cidade_nome;
 	INSERT INTO Fornecedores (nome, ie, cnpj, email, telefone, ID_Cidade)
-    VALUES (@nome, @ie, @cnpj, @email, @telefone, @cidade_id);
+        VALUES (@nome, @ie, @cnpj, @email, @telefone, @cidade_id);
 END;
 GO
 
@@ -354,17 +358,17 @@ GO
 
 
 CREATE PROCEDURE ConsultarFornecedor
-    @nome NVARCHAR(100),
+        @nome NVARCHAR(100),
 	@ie NVARCHAR(15),
-    @cnpj NVARCHAR(18)
+        @cnpj NVARCHAR(18)
 AS
 BEGIN
-    SELECT F.*, CI.nome AS cidade_nome
-    FROM Fornecedores F
-    INNER JOIN Cidades CI ON F.id_cidade = CI.id_cidade
-    WHERE (@nome IS NOT NULL AND F.nome = @nome)
-       OR (@ie IS NOT NULL AND F.ie = @ie)
-	   OR (@cnpj IS NOT NULL AND F.cnpj = @cnpj);
+	SELECT F.*, CI.nome AS cidade_nome
+	FROM Fornecedores F
+	INNER JOIN Cidades CI ON F.id_cidade = CI.id_cidade
+	WHERE (@nome IS NOT NULL AND F.nome = @nome)
+	    OR (@ie IS NOT NULL AND F.ie = @ie)
+	        OR (@cnpj IS NOT NULL AND F.cnpj = @cnpj);
 END;
 GO
 
@@ -403,7 +407,7 @@ GO
 
 
 CREATE PROCEDURE ExcluirFornecedor
-    @id_fornecedor INT
+        @id_fornecedor INT
 AS
 BEGIN
     DELETE FROM Fornecedores WHERE @id_fornecedor = id_fornecedor;
@@ -418,8 +422,7 @@ GO
 CREATE VIEW VW_DGV_FORNECEDORES
 AS
 SELECT F.id_fornecedor, F.nome, F.cnpj, F.ie, F.telefone, F.email, CI.nome AS cidade FROM Fornecedores F
-	INNER JOIN Cidades CI
-	ON F.id_cidade = CI.id_cidade
+	INNER JOIN Cidades CI ON F.id_cidade = CI.id_cidade
 GO
 
 
@@ -434,12 +437,15 @@ ON Produtos
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Produtos
-    SET Produtos.data_modificacao = GETDATE()
-    FROM Produtos
-    INNER JOIN inserted i ON Produtos.id_produto = i.id_produto;
+	UPDATE Produtos
+	SET Produtos.data_modificacao = GETDATE()
+	FROM Produtos
+	INNER JOIN inserted i ON Produtos.id_produto = i.id_produto;
 END;
 GO
+
+
+	
 
 
 CREATE PROCEDURE IncluirProduto
@@ -448,20 +454,21 @@ CREATE PROCEDURE IncluirProduto
 AS
 BEGIN
 	INSERT INTO Produtos(nome, descricao)
-    VALUES (@nome, @descricao);
+        VALUES (@nome, @descricao);
 END;
 GO
 
 
 
+	
 
 
 CREATE PROCEDURE ConsultarProduto
-    @nome NVARCHAR(100)
+        @nome NVARCHAR(100)
 AS
 BEGIN
-    SELECT * FROM Produtos P
-    WHERE (@nome IS NOT NULL AND P.nome = @nome)
+	SELECT * FROM Produtos P
+	 WHERE (@nome IS NOT NULL AND P.nome = @nome)
 END;
 GO
 
@@ -489,19 +496,19 @@ GO
 
 
 CREATE PROCEDURE ExcluirProduto
-    @id_produto INT
+ @id_produto INT
 AS
 BEGIN
-    DELETE FROM Produtos WHERE @id_produto = id_produto;
+	DELETE FROM Produtos WHERE @id_produto = id_produto;
 END;
 GO
+
+	
 
 CREATE VIEW VW_DGV_PRODUTOS
 AS
 SELECT P.id_produto, P.nome, P.descricao FROM Produtos P
 GO
-
-
 
 
 
@@ -513,25 +520,29 @@ ON Nota_Entrada
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Nota_Entrada
-    SET Nota_Entrada.data_modificacao = GETDATE()
-    FROM Nota_Entrada
-    INNER JOIN inserted i ON Nota_Entrada.id_nota_e = i.id_nota_e;
+	UPDATE Nota_Entrada
+	SET Nota_Entrada.data_modificacao = GETDATE()
+	FROM Nota_Entrada
+	INNER JOIN inserted i ON Nota_Entrada.id_nota_e = i.id_nota_e;
 END;
 GO
 
+
+
+
+	
 CREATE TRIGGER tbiu_calcula_custo_medio
 ON Nota_Entrada
 AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
-   UPDATE Produto
-    SET custo_medio = CASE -- seta o custo medio segundo tais condições
-        WHEN i.qtd_total > 0 THEN (i.valor_total / i.qtd_total) -- se maior que 0, calcula o custo medio do item, se não, deixa setado como 0 para evitar divisoes por 0
-        ELSE 0
-        END
-    FROM Produto
-    JOIN (
+	 UPDATE Produtos
+		SET custo_medio = CASE -- seta o custo medio segundo tais condições
+		WHEN i.qtd_total > 0 THEN (i.valor_total / i.qtd_total) -- se maior que 0, calcula o custo medio do item, se não, deixa setado como 0 para evitar divisoes por 0
+		ELSE 0
+		END
+	FROM Produtos
+      JOIN (
         SELECT
             inserted.id_produto,
             SUM(inserted.qtde) AS qtd_total,
@@ -540,11 +551,13 @@ BEGIN
             inserted
         GROUP BY
             inserted.id_produto
-    ) AS i ON Produto.id_produto = i.id_produto;
+      ) AS i ON Produtos.id_produto = i.id_produto;
 END;
 GO
 
 
+
+	
 
 CREATE PROCEDURE IncluirNotaEntrada
 	@fornecedor_nome NVARCHAR(100),
@@ -560,27 +573,30 @@ BEGIN
 	SELECT @fornecedor_id = id_fornecedor FROM Fornecedores WHERE nome = @fornecedor_nome;
 
 	INSERT INTO Nota_Entrada (id_fornecedor, n_nota, id_produto, qtde, valor_un_compra)
-    VALUES (@fornecedor_id, @n_nota, @produto_id, @qtde, @valor_un_compra);
+        VALUES (@fornecedor_id, @n_nota, @produto_id, @qtde, @valor_un_compra);
 END;
 GO
 
+
+	
+	
 CREATE RULE rl_quantidade AS @qtde >0
 GO 
-
 EXECUTE SP_BINDRULE rl_quantidade , 'Nota_Entrada.qtde'
 GO
 
 
+	
 
 CREATE PROCEDURE ConsultarNotaEntrada
 	@n_nota INT
 AS
 BEGIN
-    SELECT E.*, F.nome AS fornecedor_nome, P.nome AS produto_nome
-    FROM Nota_Entrada E
-    INNER JOIN Fornecedores F ON E.id_fornecedor = F.id_fornecedor
-	INNER JOIN Produtos P ON E.id_produto = P.id_produto
-    WHERE (@n_nota IS NOT NULL AND E.n_nota = @n_nota);
+	SELECT E.*, F.nome AS fornecedor_nome, P.nome AS produto_nome
+	FROM Nota_Entrada E
+	INNER JOIN Fornecedores F ON E.id_fornecedor = F.id_fornecedor
+		INNER JOIN Produtos P ON E.id_produto = P.id_produto
+	WHERE (@n_nota IS NOT NULL AND E.n_nota = @n_nota);
 END;
 GO
 
@@ -613,21 +629,26 @@ BEGIN
 END;
 GO
 
+
+
+	
 CREATE PROCEDURE ExcluirNotaEntrada
-    @n_nota INT
+        @n_nota INT
 AS
 BEGIN
-    DELETE FROM Nota_Entrada WHERE n_nota = @n_nota;
+	DELETE FROM Nota_Entrada WHERE n_nota = @n_nota;
 END;
 GO
 
+
+
+	
 CREATE VIEW VW_DGV_PROD_ENTRADA
 AS
     SELECT E.qtde, E.valor_un_compra, P.nome AS produto_nome
     FROM Nota_Entrada E
 	INNER JOIN Produtos P ON E.id_produto = P.id_produto
 GO
-
 
 
 
@@ -643,6 +664,7 @@ AS
 GO
 
 
+	
 
 --NOTA SAIDA--
 
@@ -651,14 +673,16 @@ ON Nota_Saida
 AFTER INSERT, UPDATE
 AS
 BEGIN
-    UPDATE Nota_Saida
-    SET Nota_Saida.data_modificacao = GETDATE()
-    FROM Nota_Saida
-    INNER JOIN inserted i ON Nota_Saida.id_nota_s = i.id_nota_s;
+	UPDATE Nota_Saida
+	SET Nota_Saida.data_modificacao = GETDATE()
+	FROM Nota_Saida
+	INNER JOIN inserted i ON Nota_Saida.id_nota_s = i.id_nota_s;
 END;
 GO
 
 
+
+	
 EXECUTE SP_BINDRULE rl_quantidade , 'Nota_Saida.qtde'
 GO
 
@@ -680,22 +704,29 @@ BEGIN
 	SELECT @cliente_id = id_cliente FROM Clientes WHERE nome = @cliente_nome;
 
 	INSERT INTO Nota_Saida (id_cliente, n_nota, id_produto, qtde, valor_un_venda)
-    VALUES (@cliente_id, @n_nota, @produto_id, @qtde, @valor_un_venda);
+        VALUES (@cliente_id, @n_nota, @produto_id, @qtde, @valor_un_venda);
 END;
 GO
 
+
+
+	
+	
 
 CREATE PROCEDURE ConsultarNotaSaida
 	@n_nota INT
 AS
 BEGIN
-    SELECT S.*, C.nome AS cliente_nome, P.nome AS produto_nome
-    FROM Nota_Saida S
-    INNER JOIN Clientes C ON S.id_cliente = C.id_cliente
-	INNER JOIN Produtos P ON S.id_produto = P.id_produto
-    WHERE (@n_nota IS NOT NULL AND S.n_nota = @n_nota);
+	SELECT S.*, C.nome AS cliente_nome, P.nome AS produto_nome
+    	FROM Nota_Saida S
+	INNER JOIN Clientes C ON S.id_cliente = C.id_cliente
+		INNER JOIN Produtos P ON S.id_produto = P.id_produto
+	WHERE (@n_nota IS NOT NULL AND S.n_nota = @n_nota);
 END;
 GO
+
+
+	
 
 
 CREATE PROCEDURE AtualizarNotaSaida
@@ -724,10 +755,14 @@ GO
 
 
 
+
+	
+
+
 CREATE PROCEDURE ExcluirNotaSaida
-    @n_nota INT
+        @n_nota INT
 AS
 BEGIN
-    DELETE FROM Nota_Saida WHERE n_nota = @n_nota;
+	DELETE FROM Nota_Saida WHERE n_nota = @n_nota;
 END;
 GO
