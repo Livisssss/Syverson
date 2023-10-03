@@ -16,6 +16,15 @@ namespace Ferragem
         public Produtos()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+        }
+
+        private void Produtos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void Produtos_Load(object sender, EventArgs e)

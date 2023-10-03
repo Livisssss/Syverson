@@ -18,8 +18,17 @@ namespace Ferragem
         public Clientes()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
+        private void Clientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+  
         private void btIncluirCliente_Click(object sender, EventArgs e)
         {
             SqlConnection conn;

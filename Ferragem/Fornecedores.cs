@@ -16,6 +16,15 @@ namespace Ferragem
         public Fornecedores()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+        }
+
+        private void Fornecedores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void Fornecedores_Load(object sender, EventArgs e)
@@ -384,6 +393,21 @@ namespace Ferragem
             if (quest == DialogResult.Yes)
             {
                 LimparCampos();
+            }
+        }
+
+        private void txIEFornecedor_TextChanged(object sender, EventArgs e)
+        {
+            // Remove qualquer caractere que não seja um número
+            string numeroFornecedor = new string(txIEFornecedor.Text.Where(char.IsDigit).ToArray());
+
+            if (numeroFornecedor.Length > 12)
+            {
+                MessageBox.Show("O número do fornecedor não pode ter mais de 12 dígitos.");
+                // Limita o campo a 12 dígitos
+                txIEFornecedor.Text = numeroFornecedor.Substring(0, 12);
+                // Define o cursor no final do texto
+                txIEFornecedor.SelectionStart = txIEFornecedor.Text.Length;
             }
         }
     }
