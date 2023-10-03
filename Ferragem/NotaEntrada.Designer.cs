@@ -55,20 +55,22 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vWDGVPRODENTRADABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvNotaE = new System.Windows.Forms.DataGridView();
-            this.vWDGVNOTAENTRADABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btAdiciona = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.dgvNotaE = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vWDGVNOTAENTRADABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fornecedoresTableAdapter2 = new Ferragem.FERRAGEMdbTableAdapters.FornecedoresTableAdapter();
             this.produtosTableAdapter2 = new Ferragem.FERRAGEMdbTableAdapters.ProdutosTableAdapter();
             this.vW_DGV_PROD_ENTRADATableAdapter = new Ferragem.FERRAGEMdbTableAdapters.VW_DGV_PROD_ENTRADATableAdapter();
             this.vW_DGV_NOTA_ENTRADATableAdapter = new Ferragem.FERRAGEMdbTableAdapters.VW_DGV_NOTA_ENTRADATableAdapter();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produto_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_un_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fERRAGEMdb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
@@ -87,10 +89,11 @@
             this.btLimparNotaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimparNotaE.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btLimparNotaE.Location = new System.Drawing.Point(919, 139);
-            this.btLimparNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btLimparNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.btLimparNotaE.Name = "btLimparNotaE";
             this.btLimparNotaE.Size = new System.Drawing.Size(44, 36);
             this.btLimparNotaE.TabIndex = 161;
+            this.toolTip4.SetToolTip(this.btLimparNotaE, "Limpar");
             this.btLimparNotaE.UseVisualStyleBackColor = false;
             this.btLimparNotaE.Click += new System.EventHandler(this.btLimparNotaE_Click);
             // 
@@ -103,10 +106,11 @@
             this.btAtualizarNotaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAtualizarNotaE.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btAtualizarNotaE.Location = new System.Drawing.Point(919, 55);
-            this.btAtualizarNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAtualizarNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.btAtualizarNotaE.Name = "btAtualizarNotaE";
             this.btAtualizarNotaE.Size = new System.Drawing.Size(44, 36);
             this.btAtualizarNotaE.TabIndex = 160;
+            this.toolTip2.SetToolTip(this.btAtualizarNotaE, "Atualizar");
             this.btAtualizarNotaE.UseVisualStyleBackColor = false;
             this.btAtualizarNotaE.Click += new System.EventHandler(this.btAtualizarNotaE_Click);
             // 
@@ -119,10 +123,11 @@
             this.btExcluirNotaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExcluirNotaE.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btExcluirNotaE.Location = new System.Drawing.Point(919, 99);
-            this.btExcluirNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btExcluirNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.btExcluirNotaE.Name = "btExcluirNotaE";
             this.btExcluirNotaE.Size = new System.Drawing.Size(44, 36);
             this.btExcluirNotaE.TabIndex = 159;
+            this.toolTip3.SetToolTip(this.btExcluirNotaE, "Excluir");
             this.btExcluirNotaE.UseVisualStyleBackColor = false;
             this.btExcluirNotaE.Click += new System.EventHandler(this.btExcluirNotaE_Click);
             // 
@@ -135,10 +140,11 @@
             this.btIncluirNotaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btIncluirNotaE.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btIncluirNotaE.Location = new System.Drawing.Point(919, 12);
-            this.btIncluirNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btIncluirNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.btIncluirNotaE.Name = "btIncluirNotaE";
             this.btIncluirNotaE.Size = new System.Drawing.Size(44, 36);
             this.btIncluirNotaE.TabIndex = 158;
+            this.toolTip1.SetToolTip(this.btIncluirNotaE, "Incluir");
             this.btIncluirNotaE.UseVisualStyleBackColor = false;
             this.btIncluirNotaE.Click += new System.EventHandler(this.btIncluirNotaE_Click);
             // 
@@ -151,10 +157,11 @@
             this.btConsultarNotaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConsultarNotaE.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btConsultarNotaE.Location = new System.Drawing.Point(179, 7);
-            this.btConsultarNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btConsultarNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.btConsultarNotaE.Name = "btConsultarNotaE";
             this.btConsultarNotaE.Size = new System.Drawing.Size(59, 49);
             this.btConsultarNotaE.TabIndex = 157;
+            this.toolTip5.SetToolTip(this.btConsultarNotaE, "Consultar");
             this.btConsultarNotaE.UseVisualStyleBackColor = false;
             this.btConsultarNotaE.Click += new System.EventHandler(this.btConsultarNotaE_Click);
             // 
@@ -165,7 +172,7 @@
             this.cbFornecedor.DisplayMember = "nome";
             this.cbFornecedor.FormattingEnabled = true;
             this.cbFornecedor.Location = new System.Drawing.Point(106, 69);
-            this.cbFornecedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFornecedor.Margin = new System.Windows.Forms.Padding(2);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(203, 21);
             this.cbFornecedor.TabIndex = 155;
@@ -184,7 +191,7 @@
             // txQtde
             // 
             this.txQtde.Location = new System.Drawing.Point(106, 133);
-            this.txQtde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txQtde.Margin = new System.Windows.Forms.Padding(2);
             this.txQtde.Name = "txQtde";
             this.txQtde.Size = new System.Drawing.Size(55, 20);
             this.txQtde.TabIndex = 154;
@@ -203,7 +210,7 @@
             // 
             this.txIDNotaE.Enabled = false;
             this.txIDNotaE.Location = new System.Drawing.Point(126, 23);
-            this.txIDNotaE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txIDNotaE.Margin = new System.Windows.Forms.Padding(2);
             this.txIDNotaE.Name = "txIDNotaE";
             this.txIDNotaE.Size = new System.Drawing.Size(48, 20);
             this.txIDNotaE.TabIndex = 152;
@@ -261,7 +268,7 @@
             // txNumNota
             // 
             this.txNumNota.Location = new System.Drawing.Point(411, 69);
-            this.txNumNota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txNumNota.Margin = new System.Windows.Forms.Padding(2);
             this.txNumNota.Name = "txNumNota";
             this.txNumNota.Size = new System.Drawing.Size(55, 20);
             this.txNumNota.TabIndex = 163;
@@ -312,68 +319,38 @@
             this.dgvProd.RowHeadersVisible = false;
             this.dgvProd.RowHeadersWidth = 51;
             this.dgvProd.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvProd.Size = new System.Drawing.Size(368, 163);
+            this.dgvProd.Size = new System.Drawing.Size(368, 494);
             this.dgvProd.TabIndex = 167;
             // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn15.DataPropertyName = "produto_nome";
             this.dataGridViewTextBoxColumn15.HeaderText = "Produto";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 69;
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn13.DataPropertyName = "qtde";
             this.dataGridViewTextBoxColumn13.HeaderText = "Qtde";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn14.DataPropertyName = "valor_un_compra";
             this.dataGridViewTextBoxColumn14.HeaderText = "Valor";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // vWDGVPRODENTRADABindingSource
             // 
             this.vWDGVPRODENTRADABindingSource.DataMember = "VW_DGV_PROD_ENTRADA";
             this.vWDGVPRODENTRADABindingSource.DataSource = this.fERRAGEMdb1;
-            // 
-            // dgvNotaE
-            // 
-            this.dgvNotaE.AllowUserToAddRows = false;
-            this.dgvNotaE.AllowUserToDeleteRows = false;
-            this.dgvNotaE.AllowUserToResizeColumns = false;
-            this.dgvNotaE.AllowUserToResizeRows = false;
-            this.dgvNotaE.AutoGenerateColumns = false;
-            this.dgvNotaE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotaE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn24,
-            this.produto_nome,
-            this.qtde,
-            this.valor_un_compra});
-            this.dgvNotaE.DataSource = this.vWDGVNOTAENTRADABindingSource;
-            this.dgvNotaE.Location = new System.Drawing.Point(12, 195);
-            this.dgvNotaE.MultiSelect = false;
-            this.dgvNotaE.Name = "dgvNotaE";
-            this.dgvNotaE.ReadOnly = true;
-            this.dgvNotaE.RowHeadersVisible = false;
-            this.dgvNotaE.RowHeadersWidth = 51;
-            this.dgvNotaE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvNotaE.Size = new System.Drawing.Size(937, 215);
-            this.dgvNotaE.TabIndex = 168;
-            // 
-            // vWDGVNOTAENTRADABindingSource
-            // 
-            this.vWDGVNOTAENTRADABindingSource.DataMember = "VW_DGV_NOTA_ENTRADA";
-            this.vWDGVNOTAENTRADABindingSource.DataSource = this.fERRAGEMdb1;
             // 
             // btAdiciona
             // 
@@ -395,6 +372,58 @@
             this.btRemove.UseVisualStyleBackColor = true;
             this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
+            // dgvNotaE
+            // 
+            this.dgvNotaE.AllowUserToAddRows = false;
+            this.dgvNotaE.AllowUserToDeleteRows = false;
+            this.dgvNotaE.AllowUserToResizeColumns = false;
+            this.dgvNotaE.AllowUserToResizeRows = false;
+            this.dgvNotaE.AutoGenerateColumns = false;
+            this.dgvNotaE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotaE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn24});
+            this.dgvNotaE.DataSource = this.vWDGVNOTAENTRADABindingSource;
+            this.dgvNotaE.Location = new System.Drawing.Point(23, 206);
+            this.dgvNotaE.MultiSelect = false;
+            this.dgvNotaE.Name = "dgvNotaE";
+            this.dgvNotaE.ReadOnly = true;
+            this.dgvNotaE.RowHeadersVisible = false;
+            this.dgvNotaE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvNotaE.Size = new System.Drawing.Size(485, 300);
+            this.dgvNotaE.TabIndex = 171;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "n_nota";
+            this.dataGridViewTextBoxColumn18.HeaderText = "N° Nota";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "fornecedor_nome";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Fornecedor";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "valor_total_nota";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Valor Total";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // vWDGVNOTAENTRADABindingSource
+            // 
+            this.vWDGVNOTAENTRADABindingSource.DataMember = "VW_DGV_NOTA_ENTRADA";
+            this.vWDGVNOTAENTRADABindingSource.DataSource = this.fERRAGEMdb1;
+            // 
             // fornecedoresTableAdapter2
             // 
             this.fornecedoresTableAdapter2.ClearBeforeFill = true;
@@ -411,60 +440,15 @@
             // 
             this.vW_DGV_NOTA_ENTRADATableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "n_nota";
-            this.dataGridViewTextBoxColumn18.HeaderText = "N° Nota";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "fornecedor_nome";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Fornecedor";
-            this.dataGridViewTextBoxColumn22.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "valor_total_nota";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Valor Total";
-            this.dataGridViewTextBoxColumn24.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            // 
-            // produto_nome
-            // 
-            this.produto_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.produto_nome.DataPropertyName = "produto_nome";
-            this.produto_nome.HeaderText = "Produto";
-            this.produto_nome.Name = "produto_nome";
-            // 
-            // qtde
-            // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.qtde.DataPropertyName = "qtde";
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            // 
-            // valor_un_compra
-            // 
-            this.valor_un_compra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valor_un_compra.DataPropertyName = "valor_un_compra";
-            this.valor_un_compra.HeaderText = "Valor Un";
-            this.valor_un_compra.Name = "valor_un_compra";
-            // 
             // NotaEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(974, 422);
+            this.ClientSize = new System.Drawing.Size(974, 518);
+            this.Controls.Add(this.dgvNotaE);
             this.Controls.Add(this.btRemove);
             this.Controls.Add(this.btAdiciona);
-            this.Controls.Add(this.dgvNotaE);
             this.Controls.Add(this.dgvProd);
             this.Controls.Add(this.cbProduto);
             this.Controls.Add(this.txValor_Compra);
@@ -483,11 +467,15 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label12);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NotaEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nota de Entrada";
             this.Load += new System.EventHandler(this.NotaEntrada_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NotaEntrada_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fornecedoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fERRAGEMdb1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
@@ -525,7 +513,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qtdeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valoruncompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn produtonomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dgvNotaE;
         private System.Windows.Forms.DataGridViewTextBoxColumn idnotaeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idfornecedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nnotaDataGridViewTextBoxColumn;
@@ -551,6 +538,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.Button btRemove;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.DataGridView dgvNotaE;
         private FERRAGEMdb fERRAGEMdb1;
         private System.Windows.Forms.BindingSource fornecedoresBindingSource;
         private FERRAGEMdbTableAdapters.FornecedoresTableAdapter fornecedoresTableAdapter2;
@@ -566,8 +559,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn produto_nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_un_compra;
     }
 }

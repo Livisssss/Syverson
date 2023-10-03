@@ -48,6 +48,11 @@
             this.btIncluirProduto = new System.Windows.Forms.Button();
             this.btConsultarProduto = new System.Windows.Forms.Button();
             this.vW_DGV_PRODUTOSTableAdapter = new Ferragem.FERRAGEMdbTableAdapters.VW_DGV_PRODUTOSTableAdapter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWDGVPRODUTOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fERRAGEMdb)).BeginInit();
@@ -55,6 +60,10 @@
             // 
             // dgvProdutos
             // 
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.AllowUserToResizeColumns = false;
+            this.dgvProdutos.AllowUserToResizeRows = false;
             this.dgvProdutos.AutoGenerateColumns = false;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -63,8 +72,12 @@
             this.descricaoDataGridViewTextBoxColumn});
             this.dgvProdutos.DataSource = this.vWDGVPRODUTOSBindingSource;
             this.dgvProdutos.Location = new System.Drawing.Point(340, 13);
+            this.dgvProdutos.MultiSelect = false;
             this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.RowHeadersWidth = 51;
+            this.dgvProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProdutos.Size = new System.Drawing.Size(438, 224);
             this.dgvProdutos.TabIndex = 156;
             // 
@@ -80,11 +93,13 @@
             // 
             // nomeDataGridViewTextBoxColumn
             // 
-            this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nomeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeDataGridViewTextBoxColumn.Width = 60;
             // 
             // descricaoDataGridViewTextBoxColumn
             // 
@@ -93,6 +108,7 @@
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.descricaoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vWDGVPRODUTOSBindingSource
             // 
@@ -108,7 +124,7 @@
             // 
             this.txIDProduto.Enabled = false;
             this.txIDProduto.Location = new System.Drawing.Point(106, 23);
-            this.txIDProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txIDProduto.Margin = new System.Windows.Forms.Padding(2);
             this.txIDProduto.Name = "txIDProduto";
             this.txIDProduto.Size = new System.Drawing.Size(48, 20);
             this.txIDProduto.TabIndex = 152;
@@ -126,7 +142,7 @@
             // txDescricaoProduto
             // 
             this.txDescricaoProduto.Location = new System.Drawing.Point(69, 112);
-            this.txDescricaoProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txDescricaoProduto.Margin = new System.Windows.Forms.Padding(2);
             this.txDescricaoProduto.Multiline = true;
             this.txDescricaoProduto.Name = "txDescricaoProduto";
             this.txDescricaoProduto.Size = new System.Drawing.Size(240, 125);
@@ -145,7 +161,7 @@
             // txNomeProduto
             // 
             this.txNomeProduto.Location = new System.Drawing.Point(69, 69);
-            this.txNomeProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txNomeProduto.Margin = new System.Windows.Forms.Padding(2);
             this.txNomeProduto.Name = "txNomeProduto";
             this.txNomeProduto.Size = new System.Drawing.Size(240, 20);
             this.txNomeProduto.TabIndex = 144;
@@ -169,10 +185,11 @@
             this.btLimparProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimparProduto.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btLimparProduto.Location = new System.Drawing.Point(796, 153);
-            this.btLimparProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btLimparProduto.Margin = new System.Windows.Forms.Padding(2);
             this.btLimparProduto.Name = "btLimparProduto";
             this.btLimparProduto.Size = new System.Drawing.Size(44, 36);
             this.btLimparProduto.TabIndex = 161;
+            this.toolTip4.SetToolTip(this.btLimparProduto, "Limpar");
             this.btLimparProduto.UseVisualStyleBackColor = false;
             this.btLimparProduto.Click += new System.EventHandler(this.btLimparProduto_Click);
             // 
@@ -185,10 +202,11 @@
             this.btAtualizarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAtualizarProduto.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btAtualizarProduto.Location = new System.Drawing.Point(796, 69);
-            this.btAtualizarProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAtualizarProduto.Margin = new System.Windows.Forms.Padding(2);
             this.btAtualizarProduto.Name = "btAtualizarProduto";
             this.btAtualizarProduto.Size = new System.Drawing.Size(44, 36);
             this.btAtualizarProduto.TabIndex = 160;
+            this.toolTip2.SetToolTip(this.btAtualizarProduto, "Atualizar");
             this.btAtualizarProduto.UseVisualStyleBackColor = false;
             this.btAtualizarProduto.Click += new System.EventHandler(this.btAtualizarProduto_Click);
             // 
@@ -201,10 +219,11 @@
             this.btExcluirProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExcluirProduto.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btExcluirProduto.Location = new System.Drawing.Point(796, 113);
-            this.btExcluirProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btExcluirProduto.Margin = new System.Windows.Forms.Padding(2);
             this.btExcluirProduto.Name = "btExcluirProduto";
             this.btExcluirProduto.Size = new System.Drawing.Size(44, 36);
             this.btExcluirProduto.TabIndex = 159;
+            this.toolTip3.SetToolTip(this.btExcluirProduto, "Excluir");
             this.btExcluirProduto.UseVisualStyleBackColor = false;
             this.btExcluirProduto.Click += new System.EventHandler(this.btExcluirProduto_Click);
             // 
@@ -217,10 +236,11 @@
             this.btIncluirProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btIncluirProduto.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btIncluirProduto.Location = new System.Drawing.Point(796, 26);
-            this.btIncluirProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btIncluirProduto.Margin = new System.Windows.Forms.Padding(2);
             this.btIncluirProduto.Name = "btIncluirProduto";
             this.btIncluirProduto.Size = new System.Drawing.Size(44, 36);
             this.btIncluirProduto.TabIndex = 158;
+            this.toolTip1.SetToolTip(this.btIncluirProduto, "Incluir");
             this.btIncluirProduto.UseVisualStyleBackColor = false;
             this.btIncluirProduto.Click += new System.EventHandler(this.btIncluirProduto_Click);
             // 
@@ -233,10 +253,11 @@
             this.btConsultarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConsultarProduto.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.btConsultarProduto.Location = new System.Drawing.Point(159, 7);
-            this.btConsultarProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btConsultarProduto.Margin = new System.Windows.Forms.Padding(2);
             this.btConsultarProduto.Name = "btConsultarProduto";
             this.btConsultarProduto.Size = new System.Drawing.Size(59, 49);
             this.btConsultarProduto.TabIndex = 157;
+            this.toolTip5.SetToolTip(this.btConsultarProduto, "Consultar");
             this.btConsultarProduto.UseVisualStyleBackColor = false;
             this.btConsultarProduto.Click += new System.EventHandler(this.btConsultarProduto_Click);
             // 
@@ -262,11 +283,15 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txNomeProduto);
             this.Controls.Add(this.label12);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Produtos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
             this.Load += new System.EventHandler(this.Produtos_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Produtos_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWDGVPRODUTOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fERRAGEMdb)).EndInit();
@@ -295,5 +320,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip5;
     }
 }

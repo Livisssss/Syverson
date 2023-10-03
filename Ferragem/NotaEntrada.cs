@@ -28,6 +28,16 @@ namespace Ferragem
 
             // Configure o DataGridView para usar o DataTable como fonte de dados
             dgvProd.DataSource = dataTable;
+
+            this.KeyPreview = true;
+        }
+
+        private void NotaEntrada_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void NotaEntrada_Load(object sender, EventArgs e)
@@ -123,31 +133,33 @@ namespace Ferragem
                     return;
                 }
 
-                foreach (DataGridViewRow row in dgvProd.Rows)
+                using (SqlCommand comm = new SqlCommand("IncluirNotaEntrada", conn))
                 {
-                    if (!row.IsNewRow)
+                    comm.CommandType = CommandType.StoredProcedure;
+
+                    foreach (DataGridViewRow row in dgvProd.Rows)
                     {
-                        string produtoNome = row.Cells[0].Value.ToString();
-                        int qtde = Convert.ToInt32(row.Cells[1].Value);
-                        double valorUnCompra = Convert.ToDouble(row.Cells[2].Value);
-
-                        using (SqlCommand command = new SqlCommand("IncluirNotaEntrada", conn))
+                        if (!row.IsNewRow)
                         {
-                            command.CommandType = CommandType.StoredProcedure;
+                            string produtoNome = row.Cells[0].Value.ToString();
+                            int qtde = Convert.ToInt32(row.Cells[1].Value);
+                            double valorUnCompra = Convert.ToDouble(row.Cells[2].Value);
 
-                            command.Parameters.AddWithValue("@fornecedor_nome", cbFornecedor.Text);
-                            command.Parameters.AddWithValue("@produto_nome", produtoNome);
-                            command.Parameters.AddWithValue("@n_nota", nNota);
-                            command.Parameters.AddWithValue("@qtde", qtde);
-                            command.Parameters.AddWithValue("@valor_un_compra", valorUnCompra);
+                            comm.Parameters.Clear(); // Limpa os parâmetros para adicionar novos valores
+                            comm.Parameters.AddWithValue("@fornecedor_nome", cbFornecedor.Text);
+                            comm.Parameters.AddWithValue("@produto_nome", produtoNome);
+                            comm.Parameters.AddWithValue("@n_nota", nNota);
+                            comm.Parameters.AddWithValue("@qtde", qtde);
+                            comm.Parameters.AddWithValue("@valor_un_compra", valorUnCompra);
 
-                            command.ExecuteNonQuery();
+                            comm.ExecuteNonQuery();
                         }
                     }
                 }
 
+
                 AtualizarDataGridView();
-                LimparCampos(); // Limpa os campos após atualizar o dgvProd
+                LimparCampos();
 
                 MessageBox.Show("Produtos incluídos na nota com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -164,7 +176,64 @@ namespace Ferragem
 
         private void btAtualizarNotaE_Click(object sender, EventArgs e)
         {
+            SqlConnection conn;
+            SqlCommand comm;
 
+            string connectionString = Properties.Settings.Default.FERRAGEMConnectionString;
+
+            conn = new SqlConnection(connectionString);
+
+            comm = new SqlCommand("AtualizarNotaEntrada", conn);
+            comm.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message, "Erro ao abrir conexão com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (string.IsNullOrWhiteSpace(cbFornecedor.Text) || string.IsNullOrWhiteSpace(txNumNota.Text))
+                {
+                    MessageBox.Show("Por favor, preencha o fornecedor e o número da nota.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult quest = MessageBox.Show("Tem certeza que deseja atualizar a Nota?\n"
+                    , "Confirmação de Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (quest == DialogResult.Yes)
+                {
+                    if (!int.TryParse(txNumNota.Text, out int nNota))
+                    {
+                        MessageBox.Show("O número da nota deve ser um valor numérico.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int idFornecedor = int.Parse(txIDNotaE.Text);
+
+                    comm.Parameters.AddWithValue("@fornecedor_nome", cbFornecedor.Text);
+                    comm.Parameters.AddWithValue("@n_nota", nNota);
+
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Nota atualizada com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                    AtualizarDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar nota: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void btExcluirNotaE_Click(object sender, EventArgs e)
@@ -196,7 +265,6 @@ namespace Ferragem
                     return;
                 }
 
-                // Verifica se o texto em txIDNotaE.Text é um número válido
                 if (int.TryParse(txNumNota.Text, out int notaN))
                 {
                     DialogResult quest = MessageBox.Show("Tem certeza que deseja excluir a nota?\n", "Confirmação de Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -233,7 +301,6 @@ namespace Ferragem
             }
         }
 
-
         private void btLimparNotaE_Click(object sender, EventArgs e)
         {
             DialogResult quest = MessageBox.Show("Limpar todos os campos?\n", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -244,7 +311,6 @@ namespace Ferragem
 
             }
         }
-
 
         private void LimparCampos()
         {
@@ -289,10 +355,8 @@ namespace Ferragem
         {
             if (dataTable.Rows.Count > 0)
             {
-                // Remove a última linha do DataTable
                 dataTable.Rows.RemoveAt(dataTable.Rows.Count - 1);
 
-                // Atualiza o DataGridView
                 dgvProd.DataSource = null;
                 dgvProd.DataSource = dataTable;
             }
@@ -323,7 +387,6 @@ namespace Ferragem
             }
             else if (!string.IsNullOrWhiteSpace(txNumNota.Text) && int.TryParse(txNumNota.Text, out int nNota))
             {
-                // Verifica se o número da nota já existe no DataTable
                 foreach (DataRow row in dataTable.Rows)
                 {
                     int existingNota;
@@ -336,6 +399,5 @@ namespace Ferragem
                 }
             }
         }
-
     }
 }
